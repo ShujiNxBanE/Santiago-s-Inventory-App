@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "849389467336",
+    "project_id": "santiago-s-inventory",
+    "storage_bucket": "santiago-s-inventory.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:849389467336:android:8a92ffb7e5c472234d17fd",
+        "android_client_info": {
+          "package_name": "com.santiagosinventory"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACpWevAywn9L4m7B-M3k5a_DPSwMBgpLA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
