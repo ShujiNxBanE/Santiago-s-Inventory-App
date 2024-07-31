@@ -1,5 +1,6 @@
 package com.santiagosinventory
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -33,7 +34,9 @@ class RegisterActivity : AppCompatActivity() {
             .addOnCompleteListener(this){ task ->
                 if (task.isSuccessful){
                     Toast.makeText(baseContext, "El registro ah sido exitoso.", Toast.LENGTH_SHORT).show()
-                    // Regresar a la pantalla inicial del Admin
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
                 } else {
                     Toast.makeText(baseContext, "El registro falló: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                 }

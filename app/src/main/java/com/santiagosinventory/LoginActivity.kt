@@ -34,6 +34,7 @@ class LoginActivity : AppCompatActivity() {
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                     Toast.makeText(baseContext, "Sesión iniciada correctamente", Toast.LENGTH_SHORT).show()
+                    finish()
                 } else {
                     Toast.makeText(baseContext, "Falló al iniciar sesion: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                 }

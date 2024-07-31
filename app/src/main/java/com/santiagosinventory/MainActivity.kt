@@ -1,5 +1,6 @@
 package com.santiagosinventory
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -26,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         db = FirebaseFirestore.getInstance()
         val user = auth.currentUser
         if (user != null) {
+            Toast.makeText(baseContext, "${user.email}", Toast.LENGTH_SHORT).show()
             checkUserRole(user.uid)
         } else {
             Log.e("MainActivity", "Usuario no autenticado")
@@ -48,11 +50,16 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.crearNuevoUsuario -> {
-                // Acción para crear un nuevo usuario
+                val intent = Intent(this, RegisterActivity::class.java)
+                startActivity(intent)
                 true
             }
             R.id.cerrarSesion -> {
-                // Acción para cerrar sesión
+                auth.signOut()
+                val intent = Intent(this, LoginActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+                Toast.makeText(this, "Sesión cerrada", Toast.LENGTH_SHORT).show()
                 true
             }
             else -> super.onOptionsItemSelected(item)
